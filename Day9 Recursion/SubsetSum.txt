@@ -1,0 +1,21 @@
+void subsetsum(int index,int sum,vector<int>&ans,vector<int>arr,int N)
+{if(index==N)
+{ans.push_back(sum);
+return;}
+    
+    subsetsum(index+1,sum+arr[index],ans,arr,N);
+    subsetsum(index+1,sum,ans,arr,N);
+    
+}
+
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        // Write Your Code here
+        int index=0;
+        int sum=0;
+        vector<int> ans;
+         subsetsum(index,sum,ans,arr,N);
+         sort(ans.begin(),ans.end());
+    
+        return ans;
+    }
